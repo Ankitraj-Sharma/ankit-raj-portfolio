@@ -11,10 +11,13 @@ import {
   Sparkles, 
   Brain,
   FileText,
-  Play
+  Play,
+  Zap,
+  Cpu
 } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 import { playSound } from '../utils/audio';
+import AnimatedCounter from './AnimatedCounter';
 
 export default function Hero({ onOpenTerminal, onOpenResume }) {
   const { personal, stats } = portfolioData;
@@ -71,7 +74,7 @@ export default function Hero({ onOpenTerminal, onOpenResume }) {
           <div className="lg:col-span-7 flex flex-col gap-6">
             
             {/* Status Pill */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-sm w-fit">
+            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-sm w-fit card-glow-hover">
               <span className="flex h-2 w-2 relative">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -104,42 +107,42 @@ export default function Hero({ onOpenTerminal, onOpenResume }) {
               Hi, I'm <strong className="text-slate-900 dark:text-white font-semibold">Ankit Raj Sharma</strong> — Full Stack Developer, Open Source Contributor (<strong className="text-[#ff5e14] font-semibold">Odoo</strong> & <strong className="text-[#ff5e14] font-semibold">Apache Camel K</strong>), and aspiring <strong className="text-orange-600 dark:text-orange-400 font-semibold">Data Scientist & AI/ML Engineer</strong> (B.Tech Computer Engineering, <strong className="text-slate-900 dark:text-white font-semibold">Marwadi University NAAC A+, CGPA 7.91</strong>). Co-developer of <strong className="text-slate-900 dark:text-white font-semibold">Sentinel Android</strong> (Team PhishShield ML threat classifier) with expertise across <strong className="text-slate-900 dark:text-white font-semibold">YOLOv8 Computer Vision, Supabase RAG, Python, and React</strong>.
             </p>
 
-            {/* Quick Metrics Strip */}
+            {/* Quick Metrics Strip with Animated Counters */}
             <div className="grid grid-cols-3 gap-3 sm:gap-4 py-2 max-w-xl">
               
-              <div className="p-4 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 border-l-4 border-l-amber-500 shadow-sm dark:shadow-md">
+              <div className="p-4 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 border-l-4 border-l-amber-500 shadow-sm dark:shadow-md card-glow-hover">
                 <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-mono uppercase">
                   <GraduationCap className="w-3.5 h-3.5 text-amber-500" />
                   <span>CGPA</span>
                 </div>
                 <div className="text-2xl font-display font-bold text-slate-900 dark:text-white mt-1">
-                  7.91
+                  <AnimatedCounter end={7.91} decimals={2} />
                 </div>
                 <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono block mt-0.5">
                   Marwadi Univ A+
                 </span>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 border-l-4 border-l-[#ff5e14] shadow-sm dark:shadow-md">
+              <div className="p-4 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 border-l-4 border-l-[#ff5e14] shadow-sm dark:shadow-md card-glow-hover">
                 <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-mono uppercase">
                   <Code className="w-3.5 h-3.5 text-[#ff5e14]" />
                   <span>Shipped</span>
                 </div>
                 <div className="text-2xl font-display font-bold text-slate-900 dark:text-white mt-1">
-                  10+ Live
+                  <AnimatedCounter end={10} suffix="+" />
                 </div>
                 <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono block mt-0.5">
                   Vision, ML & Web
                 </span>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 border-l-4 border-l-indigo-500 shadow-sm dark:shadow-md">
+              <div className="p-4 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 border-l-4 border-l-indigo-500 shadow-sm dark:shadow-md card-glow-hover">
                 <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-mono uppercase">
                   <ShieldCheck className="w-3.5 h-3.5 text-indigo-500" />
                   <span>Open Source</span>
                 </div>
                 <div className="text-2xl font-display font-bold text-slate-900 dark:text-white mt-1">
-                  35+
+                  <AnimatedCounter end={35} suffix="+" />
                 </div>
                 <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono block mt-0.5">
                   GitHub Repositories
@@ -181,27 +184,51 @@ export default function Hero({ onOpenTerminal, onOpenResume }) {
 
           </div>
 
-          {/* Right Column: Balanced Professional Studio Portrait */}
-          <div className="lg:col-span-5 flex justify-center">
+          {/* Right Column: Balanced Professional Studio Portrait with Floating Tech Orbs */}
+          <div className="lg:col-span-5 flex justify-center relative">
             
-            <div className="relative w-full max-w-[370px] sm:max-w-[410px]">
+            <div className="relative w-full max-w-[370px] sm:max-w-[420px]">
               
-              {/* Refined Ambient Glow */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/15 via-amber-500/10 to-transparent rounded-[32px] blur-2xl -z-10" />
+              {/* Dynamic Ambient Background Glow */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/20 via-amber-500/15 to-blue-500/10 rounded-[36px] blur-3xl -z-10 animate-pulse" />
+
+              {/* Floating Holographic Badge 1: YOLOv8 Vision (Top Left) */}
+              <div className="absolute -top-4 -left-4 sm:-left-6 z-30 px-3 py-1.5 rounded-2xl bg-white/95 dark:bg-[#111827]/95 backdrop-blur-xl border border-orange-500/30 shadow-xl flex items-center gap-2 animate-float-slow select-none">
+                <span className="w-2 h-2 rounded-full bg-[#ff5e14] animate-ping" />
+                <span className="text-[11px] font-mono font-bold text-slate-900 dark:text-white">
+                  🎯 YOLOv8 Vision
+                </span>
+              </div>
+
+              {/* Floating Holographic Badge 2: Supabase RAG (Top Right) */}
+              <div className="absolute -top-3 -right-3 sm:-right-5 z-30 px-3 py-1.5 rounded-2xl bg-white/95 dark:bg-[#111827]/95 backdrop-blur-xl border border-emerald-500/30 shadow-xl flex items-center gap-2 animate-float-delayed select-none">
+                <Zap className="w-3.5 h-3.5 text-emerald-500" />
+                <span className="text-[11px] font-mono font-bold text-slate-900 dark:text-white">
+                  ⚡ Supabase + RAG
+                </span>
+              </div>
+
+              {/* Floating Holographic Badge 3: Sentinel ML (Right Middle) */}
+              <div className="hidden sm:flex absolute top-1/2 -right-8 -translate-y-1/2 z-30 px-3 py-1.5 rounded-2xl bg-white/95 dark:bg-[#111827]/95 backdrop-blur-xl border border-indigo-500/30 shadow-xl items-center gap-2 animate-float-slow select-none">
+                <ShieldCheck className="w-3.5 h-3.5 text-indigo-500" />
+                <span className="text-[11px] font-mono font-bold text-slate-900 dark:text-white">
+                  🛡️ Sentinel 97.4%
+                </span>
+              </div>
 
               {/* Studio Frame with Dark/Light Adaptive Border */}
-              <div className="p-3 rounded-[32px] bg-slate-100 dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-xl">
+              <div className="p-3.5 rounded-[36px] bg-slate-100 dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-2xl transition-transform duration-500 hover:scale-[1.01]">
                 
-                <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden bg-slate-200 dark:bg-[#0f172a] flex items-end justify-center">
+                <div className="relative aspect-[4/5] rounded-[28px] overflow-hidden bg-slate-200 dark:bg-[#0f172a] flex items-end justify-center">
                   
                   {/* Subtle inner bottom gradient for text contrast */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent z-10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent z-10 pointer-events-none" />
 
                   {/* Clean studio image */}
                   <img
                     src="./images/ankit-portrait.jpg"
                     alt="Ankit Raj Sharma — Full Stack Developer & Aspiring Data Scientist"
-                    className="w-full h-full object-cover object-top hover:scale-[1.02] transition-transform duration-700"
+                    className="w-full h-full object-cover object-top hover:scale-[1.03] transition-transform duration-700"
                   />
 
                   {/* Bottom Info Floating Card */}

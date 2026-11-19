@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import MarqueeStrip from './components/MarqueeStrip';
 import AboutSection from './components/AboutSection';
 import ProjectsSection from './components/ProjectsSection';
 import SkillsSection from './components/SkillsSection';
@@ -11,6 +12,7 @@ import NavigationDrawer from './components/NavigationDrawer';
 import TerminalModal from './components/TerminalModal';
 import ResumeModal from './components/ResumeModal';
 import QuickNavDock from './components/QuickNavDock';
+import ParticleNetwork from './components/ParticleNetwork';
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -39,7 +41,7 @@ export default function App() {
     }
   }, [darkMode]);
 
-  // Keyboard shortcut: `~` or ` to open terminal, and 'r' for resume
+  // Keyboard shortcut: `~` or ` to open terminal
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
@@ -54,6 +56,9 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0B0F19] text-slate-900 dark:text-slate-100 transition-colors duration-200 relative selection:bg-[#ff5e14] selection:text-white">
       
+      {/* Interactive Cyber Particle Network Canvas */}
+      <ParticleNetwork darkMode={darkMode} />
+
       {/* Subtle Ambient Background Lighting */}
       <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
         <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-orange-500/5 dark:bg-orange-500/10 rounded-full blur-[140px]" />
@@ -77,6 +82,10 @@ export default function App() {
           onOpenTerminal={() => setOpenTerminal(true)} 
           onOpenResume={() => setOpenResume(true)}
         />
+        
+        {/* Infinite Scrolling Tech Marquee Ticker */}
+        <MarqueeStrip />
+
         <AboutSection />
         <ProjectsSection />
         <SkillsSection />

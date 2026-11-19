@@ -11,7 +11,8 @@ import {
   TreePine,
   Terminal,
   TrendingUp,
-  Brain
+  Brain,
+  Zap
 } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
@@ -62,7 +63,7 @@ export default function AboutSection() {
         <div className="lg:col-span-5 flex flex-col gap-6">
           
           {/* Education Card */}
-          <div className="p-6 sm:p-7 rounded-3xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-md">
+          <div className="p-6 sm:p-7 rounded-3xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-md card-glow-hover">
             <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#ff5e14] mb-4">
               <GraduationCap className="w-4 h-4" />
               <span>Academic Foundation</span>
@@ -91,13 +92,13 @@ export default function AboutSection() {
           </div>
 
           {/* Future Plan: Data Scientist Vision Card */}
-          <div className="p-6 rounded-3xl bg-gradient-to-br from-orange-500/10 via-amber-500/5 to-transparent border border-orange-500/30 dark:border-orange-500/20 shadow-sm">
+          <div className="p-6 rounded-3xl bg-gradient-to-br from-orange-500/10 via-amber-500/5 to-transparent border border-orange-500/30 dark:border-orange-500/20 shadow-sm card-glow-hover">
             <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-[#ff5e14] font-bold mb-2">
               <Brain className="w-4 h-4" />
-              <span>Target Career Trajectory: Data Scientist</span>
+              <span>Target Career Trajectory: Data Scientist & AI Engineer</span>
             </div>
             <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-              Advancing from full-stack architectures into <strong>Data Science & Applied Machine Learning</strong>. Passionate about feature engineering, predictive modeling with Scikit-Learn, exploratory data analysis (EDA), and connecting data pipelines with production systems.
+              Advancing from full-stack architectures into <strong>Data Science, Applied Machine Learning, & Computer Vision</strong>. Passionate about feature engineering, predictive modeling with Scikit-Learn, YOLOv8 vision pipelines, exploratory data analysis (EDA), and connecting real-time ML with production systems.
             </p>
             <div className="mt-3 flex flex-wrap gap-1.5 text-[10px] font-mono font-semibold">
               <span className="px-2.5 py-1 rounded-md bg-orange-500/15 text-orange-600 dark:text-orange-400">
@@ -107,7 +108,10 @@ export default function AboutSection() {
                 NumPy & Pandas
               </span>
               <span className="px-2.5 py-1 rounded-md bg-orange-500/15 text-orange-600 dark:text-orange-400">
-                ML Modeling
+                YOLOv8 & MediaPipe
+              </span>
+              <span className="px-2.5 py-1 rounded-md bg-orange-500/15 text-orange-600 dark:text-orange-400">
+                Scikit-Learn ML
               </span>
               <span className="px-2.5 py-1 rounded-md bg-orange-500/15 text-orange-600 dark:text-orange-400">
                 GraphRAG
@@ -123,14 +127,14 @@ export default function AboutSection() {
           <div className="p-6 sm:p-7 rounded-3xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-md">
             <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#ff5e14] mb-4">
               <Briefcase className="w-4 h-4" />
-              <span>Internships & Leadership Timeline</span>
+              <span>Internships & Engineering Highlights</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {achievements.map((item, idx) => (
                 <div 
                   key={idx}
-                  className="p-4 rounded-2xl bg-slate-50 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 hover:border-[#ff5e14]/50 transition-all flex flex-col justify-between"
+                  className="p-4 rounded-2xl bg-slate-50 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 hover:border-[#ff5e14]/50 transition-all flex flex-col justify-between card-glow-hover"
                 >
                   <div>
                     <span className="text-[10px] font-mono font-semibold text-orange-600 dark:text-orange-400 block mb-1 uppercase">
@@ -157,7 +161,7 @@ export default function AboutSection() {
       </div>
 
       {/* Perspective & Life Beyond Code Cards */}
-      <div className="mt-12">
+      <div className="mt-14">
         <div className="flex items-center justify-between mb-6">
           <div>
             <h3 className="text-lg font-display font-bold text-slate-900 dark:text-white">
@@ -173,13 +177,13 @@ export default function AboutSection() {
           {perspectives.map((item, idx) => (
             <div
               key={idx}
-              className="p-3 rounded-3xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-md flex flex-col group hover:border-[#ff5e14]/50 transition-all"
+              className="p-3.5 rounded-3xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-md flex flex-col group hover:border-[#ff5e14]/50 transition-all card-glow-hover"
             >
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800">
                 <img
                   src={item.img}
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[10px] font-mono font-medium">
                   {item.tag}
