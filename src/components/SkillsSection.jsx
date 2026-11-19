@@ -4,15 +4,17 @@ import {
   Server, 
   Sparkles, 
   Database, 
-  Terminal,
-  Brain,
-  TrendingUp,
-  Cloud,
-  Cpu,
-  Zap,
-  BarChart2
+  Terminal, 
+  Brain, 
+  TrendingUp, 
+  Cloud, 
+  Cpu, 
+  Zap, 
+  BarChart2,
+  Activity
 } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import ModelBenchmarkMatrix from './ModelBenchmarkMatrix';
 
 export default function SkillsSection() {
   const { skills } = portfolioData;
@@ -27,10 +29,10 @@ export default function SkillsSection() {
       highlight: true
     },
     {
-      title: "Machine Learning & AI Systems",
+      title: "Machine Learning & Computer Vision",
       icon: <Brain className="w-5 h-5 text-purple-500" />,
-      badge: "Intermediate ML",
-      desc: "Supervised/unsupervised algorithms, evaluation metrics, RAG pipelines, and GraphRAG.",
+      badge: "Vision & ML Systems",
+      desc: "Ultralytics YOLOv8, MediaPipe, Scikit-Learn algorithms, RAG pipelines, and GraphRAG.",
       items: skills.machineLearning,
       highlight: true
     },
@@ -38,7 +40,7 @@ export default function SkillsSection() {
       title: "Data Platforms & Environments",
       icon: <Terminal className="w-5 h-5 text-cyan-500" />,
       badge: "Scientific Tools",
-      desc: "Interactive notebooks, cloud compute, and reproducible research workflows.",
+      desc: "Interactive notebooks, Streamlit, cloud compute, and reproducible research workflows.",
       items: skills.dataPlatforms
     },
     {
@@ -59,7 +61,7 @@ export default function SkillsSection() {
       title: "Backend & Systems",
       icon: <Server className="w-5 h-5 text-indigo-500" />,
       badge: "APIs & Services",
-      desc: "Node.js, Express, Java, C#, and high-throughput REST architecture.",
+      desc: "Node.js, Express, Odoo Core, Apache Camel K, Java, C#, and REST architectures.",
       items: skills.backend
     }
   ];
@@ -76,13 +78,13 @@ export default function SkillsSection() {
           SKILLS & <span className="text-[#ff5e14]">CAPABILITIES</span>
         </h2>
         <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-xl mt-2 font-mono">
-          Full-Stack Web Engineering + Data Science, Machine Learning, Supabase, and AI Tooling.
+          Full-Stack Web Engineering + Data Science, Computer Vision (YOLOv8), Supabase, and AI Tooling.
         </p>
         <div className="w-16 h-1 bg-[#ff5e14] rounded-full mt-3" />
       </div>
 
       {/* Bento Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
         {skillGroups.map((group, idx) => (
           <div
             key={idx}
@@ -130,6 +132,11 @@ export default function SkillsSection() {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Model Benchmark Matrix */}
+      <div>
+        <ModelBenchmarkMatrix />
       </div>
 
     </section>

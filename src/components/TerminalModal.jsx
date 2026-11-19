@@ -39,6 +39,7 @@ export default function TerminalModal({ isOpen, onClose }) {
   • skills     : Technical stack (Data Science, ML, Supabase, Web)
   • projects   : Featured live deployed apps & Sentinel ML
   • opensource : Upstream PRs to Odoo, Apache Camel K & GraphRAG
+  • resume     : Open & Download Curriculum Vitae PDF
   • certs      : 10+ industry certifications (Cisco, Infosys, Coursera)
   • contact    : Email, phone, WhatsApp & location
   • hire       : Schedule an interview / send email
@@ -95,6 +96,15 @@ Platforms   : Jupyter Notebooks, Google Colab, Kaggle, Linux, Git, Docker`
           type: 'output',
           text: certifications.slice(0, 5).map(c => `• ${c.title} — ${c.issuer} (${c.date})`).join('\n') + `\n...and 5+ more.`
         });
+        break;
+
+      case 'resume':
+        newHistory.push({
+          type: 'output',
+          text: `Opening Curriculum Vitae PDF (Ankit Raj Sharma)...
+Direct File: ./resume.pdf`
+        });
+        window.open('./resume.pdf', '_blank');
         break;
 
       case 'contact':
@@ -198,7 +208,7 @@ LinkedIn: ${personal.social.linkedin}`
         {/* Quick Helper Command Buttons */}
         <div className="px-5 py-2 bg-slate-950/80 border-t border-white/5 flex flex-wrap gap-2 text-[11px] font-mono">
           <span className="text-slate-500 self-center">Run:</span>
-          {['bio', 'skills', 'projects', 'opensource', 'certs', 'contact', 'hire', 'clear'].map((cmd) => (
+          {['bio', 'skills', 'projects', 'opensource', 'resume', 'certs', 'contact', 'hire', 'clear'].map((cmd) => (
             <button
               key={cmd}
               onClick={() => executeCommand(cmd)}

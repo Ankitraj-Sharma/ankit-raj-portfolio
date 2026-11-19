@@ -1,16 +1,30 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Download, GraduationCap, Code, ShieldCheck, Terminal, MapPin, Database, Sparkles, Brain } from 'lucide-react';
+import { 
+  ArrowRight, 
+  Download, 
+  GraduationCap, 
+  Code, 
+  ShieldCheck, 
+  Terminal, 
+  MapPin, 
+  Database, 
+  Sparkles, 
+  Brain,
+  FileText,
+  Play
+} from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import { playSound } from '../utils/audio';
 
-export default function Hero({ onOpenTerminal }) {
+export default function Hero({ onOpenTerminal, onOpenResume }) {
   const { personal, stats } = portfolioData;
 
   const roles = [
     "Full-Stack Web Architect",
-    "Aspiring Data Scientist & ML Engineer",
+    "Aspiring Data Scientist & AI/ML Engineer",
+    "Computer Vision & YOLOv8 Developer",
     "Upstream Open Source Contributor (Odoo & Apache)",
     "Co-Developer — Sentinel Android (Team PhishShield)",
-    "Autonomous AI Agent & RAG Developer",
     "Operations Coordinator — HackerRank MU"
   ];
   const [roleIndex, setRoleIndex] = useState(0);
@@ -87,10 +101,10 @@ export default function Hero({ onOpenTerminal }) {
 
             {/* Professional Summary */}
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl font-normal">
-              Hi, I'm <strong className="text-slate-900 dark:text-white font-semibold">Ankit Raj Sharma</strong> — Full Stack Developer, Open Source Contributor (<strong className="text-[#ff5e14] font-semibold">Odoo</strong> & <strong className="text-[#ff5e14] font-semibold">Apache Camel K</strong>), and aspiring <strong className="text-orange-600 dark:text-orange-400 font-semibold">Data Scientist & AI Engineer</strong> (B.Tech Computer Engineering, <strong className="text-slate-900 dark:text-white font-semibold">Marwadi University NAAC A+, CGPA 7.91</strong>). Co-developer of <strong className="text-slate-900 dark:text-white font-semibold">Sentinel Android</strong> (Team PhishShield ML cybersecurity) with expertise across <strong className="text-slate-900 dark:text-white font-semibold">React, Node.js, Supabase, Python & RAG architectures</strong>.
+              Hi, I'm <strong className="text-slate-900 dark:text-white font-semibold">Ankit Raj Sharma</strong> — Full Stack Developer, Open Source Contributor (<strong className="text-[#ff5e14] font-semibold">Odoo</strong> & <strong className="text-[#ff5e14] font-semibold">Apache Camel K</strong>), and aspiring <strong className="text-orange-600 dark:text-orange-400 font-semibold">Data Scientist & AI/ML Engineer</strong> (B.Tech Computer Engineering, <strong className="text-slate-900 dark:text-white font-semibold">Marwadi University NAAC A+, CGPA 7.91</strong>). Co-developer of <strong className="text-slate-900 dark:text-white font-semibold">Sentinel Android</strong> (Team PhishShield ML threat classifier) with expertise across <strong className="text-slate-900 dark:text-white font-semibold">YOLOv8 Computer Vision, Supabase RAG, Python, and React</strong>.
             </p>
 
-            {/* Quick Metrics Strip - Perfectly Color Graded */}
+            {/* Quick Metrics Strip */}
             <div className="grid grid-cols-3 gap-3 sm:gap-4 py-2 max-w-xl">
               
               <div className="p-4 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 border-l-4 border-l-amber-500 shadow-sm dark:shadow-md">
@@ -112,23 +126,23 @@ export default function Hero({ onOpenTerminal }) {
                   <span>Shipped</span>
                 </div>
                 <div className="text-2xl font-display font-bold text-slate-900 dark:text-white mt-1">
-                  8+ Live
+                  10+ Live
                 </div>
                 <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono block mt-0.5">
-                  Web & AI Systems
+                  Vision, ML & Web
                 </span>
               </div>
 
               <div className="p-4 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 border-l-4 border-l-indigo-500 shadow-sm dark:shadow-md">
                 <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-mono uppercase">
                   <ShieldCheck className="w-3.5 h-3.5 text-indigo-500" />
-                  <span>Badges</span>
+                  <span>Open Source</span>
                 </div>
                 <div className="text-2xl font-display font-bold text-slate-900 dark:text-white mt-1">
-                  10+
+                  35+
                 </div>
                 <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono block mt-0.5">
-                  Cisco & Industry
+                  GitHub Repositories
                 </span>
               </div>
 
@@ -138,24 +152,28 @@ export default function Hero({ onOpenTerminal }) {
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <a
                 href="#projects"
+                onClick={() => playSound('click')}
                 className="flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#ff5e14] text-white font-semibold text-xs tracking-wider uppercase hover:bg-[#ea580c] shadow-lg shadow-orange-500/25 transition-all transform hover:-translate-y-0.5"
               >
                 <span>Explore Works</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
 
-              <a
-                href={`mailto:${personal.email}?subject=Resume%20Request%20-%20Ankit%20Raj%20Sharma`}
+              <button
+                onClick={() => {
+                  playSound('click');
+                  onOpenResume();
+                }}
                 className="flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 font-semibold text-xs tracking-wider uppercase text-slate-900 dark:text-white hover:border-[#ff5e14]/60 transition-all transform hover:-translate-y-0.5 shadow-sm"
               >
-                <Download className="w-4 h-4 text-[#ff5e14]" />
-                <span>Get Resume</span>
-              </a>
+                <FileText className="w-4 h-4 text-[#ff5e14]" />
+                <span>Get Resume (PDF)</span>
+              </button>
 
               <button
                 onClick={onOpenTerminal}
                 className="p-3.5 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-emerald-500 transition-colors shadow-sm"
-                title="Launch Recruiter Terminal"
+                title="Launch Recruiter Terminal (Shortcut: `)"
               >
                 <Terminal className="w-4 h-4" />
               </button>
@@ -194,7 +212,7 @@ export default function Hero({ onOpenTerminal }) {
                       </h3>
                       <p className="text-[11px] text-slate-600 dark:text-slate-300 font-mono flex items-center gap-1 mt-0.5">
                         <MapPin className="w-3 h-3 text-[#ff5e14]" />
-                        Rajkot, Gujarat · Full Stack & Data Science
+                        Rajkot, Gujarat · Full Stack & AI/ML
                       </p>
                     </div>
 

@@ -10,20 +10,32 @@ import {
   Star,
   Terminal,
   Database,
-  Brain
+  Brain,
+  Info,
+  Cpu
 } from 'lucide-react';
 import { GithubIcon } from './Icons';
 import { portfolioData } from '../data/portfolioData';
+import ProjectModal from './ProjectModal';
+import PhishingMLPlayground from './PhishingMLPlayground';
+import { playSound } from '../utils/audio';
 
 export default function ProjectsSection() {
   const { projects, openSourceContributions } = portfolioData;
   const [activeCategory, setActiveCategory] = useState('ALL');
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [showLiveML, setShowLiveML] = useState(true);
 
-  const categories = ['ALL', 'AI & Data Science', 'Full Stack', 'ML & Cybersecurity', 'Frontend'];
+  const categories = ['ALL', 'AI & Computer Vision', 'AI & Data Science', 'ML & Cybersecurity', 'Full Stack'];
 
   const filteredProjects = activeCategory === 'ALL'
     ? projects
     : projects.filter(p => p.category.toLowerCase().includes(activeCategory.toLowerCase()));
+
+  const handleOpenModal = (project) => {
+    playSound('click');
+    setSelectedProject(project);
+  };
 
   return (
     <section id="projects" className="py-24 px-4 sm:px-8 max-w-7xl mx-auto relative overflow-hidden">
@@ -44,7 +56,7 @@ export default function ProjectsSection() {
           FEATURED <span className="text-[#ff5e14]">PROJECTS</span>
         </h2>
         <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 max-w-xl mt-2 font-mono">
-          Full-stack web architectures, RAG pipelines, on-device machine learning, and venture intelligence agents.
+          YOLOv8 Computer Vision, on-device threat ML, Supabase RAG architectures, and autonomous AI agents.
         </p>
         <div className="w-16 h-1 bg-[#ff5e14] rounded-full mt-3" />
       </div>
@@ -54,7 +66,10 @@ export default function ProjectsSection() {
         {categories.map((cat) => (
           <button
             key={cat}
-            onClick={() => setActiveCategory(cat)}
+            onClick={() => {
+              playSound('click');
+              setActiveCategory(cat);
+            }}
             className={`px-5 py-2 rounded-full text-xs font-mono tracking-wider uppercase transition-all ${
               activeCategory === cat
                 ? 'bg-[#ff5e14] text-white shadow-md shadow-orange-500/25 font-bold'
@@ -96,7 +111,7 @@ export default function ProjectsSection() {
 
               {/* Key Architectural Highlights */}
               <div className="space-y-2 mb-6">
-                {project.highlights.map((h, hIdx) => (
+                {project.highlights.slice(0, 3).map((h, hIdx) => (
                   <div key={hIdx} className="flex items-start gap-2 text-[11px] text-slate-600 dark:text-slate-300">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 mt-0.5 flex-shrink-0" />
                     <span className="leading-snug">{h}</span>
@@ -120,14 +135,22 @@ export default function ProjectsSection() {
 
               {/* Action Buttons */}
               <div className="flex items-center gap-2">
+                <button
+                  onClick={() => handleOpenModal(project)}
+                  className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800/90 hover:bg-[#ff5e14] hover:text-white dark:hover:bg-[#ff5e14] text-slate-800 dark:text-slate-200 font-semibold text-xs font-mono uppercase tracking-wider transition-all border border-slate-200 dark:border-slate-700 hover:border-transparent"
+                >
+                  <Info className="w-3.5 h-3.5" />
+                  <span>Deep Dive</span>
+                </button>
+
                 {project.live && project.live !== '#' && (
                   <a
                     href={project.live}
                     target="_blank"
                     rel="noreferrer"
-                    className="flex-1 flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#ff5e14] text-white font-semibold text-xs uppercase tracking-wider hover:bg-[#ea580c] shadow-md shadow-orange-500/20 transition-all"
+                    className="flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-[#ff5e14] text-white font-semibold text-xs uppercase tracking-wider hover:bg-[#ea580c] shadow-md shadow-orange-500/20 transition-all"
                   >
-                    <span>Live Demo</span>
+                    <span>Live</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                 )}
@@ -136,17 +159,37 @@ export default function ProjectsSection() {
                   href={project.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:border-[#ff5e14] transition-all text-xs font-mono"
+                  className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:border-[#ff5e14] transition-all"
                   title="View Source on GitHub"
                 >
                   <GithubIcon className="w-4 h-4" />
-                  <span>Code</span>
                 </a>
               </div>
             </div>
 
           </div>
         ))}
+      </div>
+
+      {/* LIVE INTERACTIVE ML PHISHING CLASSIFIER PLAYGROUND */}
+      <div className="mt-20">
+        <div className="flex items-center justify-between mb-6">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-2xl bg-orange-500/10 text-[#ff5e14]">
+              <Cpu className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="text-xl sm:text-2xl font-display font-bold text-slate-900 dark:text-white">
+                Interactive Model Playground
+              </h3>
+              <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-0.5">
+                Empirical on-device ML heuristics simulator running client-side with zero telemetry leakage.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <PhishingMLPlayground />
       </div>
 
       {/* DEDICATED OPEN SOURCE CONTRIBUTIONS SECTION */}
@@ -215,16 +258,16 @@ export default function ProjectsSection() {
           </div>
           <div>
             <h4 className="text-base sm:text-lg font-display font-bold text-slate-900 dark:text-white">
-              25+ Repositories & Continuous Commits
+              35+ Repositories & Continuous Commits
             </h4>
             <p className="text-xs text-slate-600 dark:text-slate-400 font-mono mt-0.5">
-              @Ankitraj-sharma · Explore all web applications, ML experiments, AI agents, and systems code
+              @Ankitraj-Sharma · Computer vision, ML models, RAG pipelines, and full-stack architectures
             </p>
           </div>
         </div>
 
         <a
-          href="https://github.com/Ankitraj-sharma"
+          href="https://github.com/Ankitraj-Sharma"
           target="_blank"
           rel="noreferrer"
           className="px-6 py-3 rounded-2xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-[#ff5e14] dark:hover:bg-[#ff5e14] dark:hover:text-white font-semibold text-xs uppercase tracking-wider transition-all flex items-center gap-2 whitespace-nowrap shadow-md"
@@ -233,6 +276,13 @@ export default function ProjectsSection() {
           <span>Explore GitHub Profile</span>
         </a>
       </div>
+
+      {/* Project Deep Dive Modal */}
+      <ProjectModal
+        project={selectedProject}
+        isOpen={Boolean(selectedProject)}
+        onClose={() => setSelectedProject(null)}
+      />
 
     </section>
   );

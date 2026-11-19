@@ -2,7 +2,7 @@ export const portfolioData = {
   personal: {
     name: "ANKIT RAJ SHARMA",
     shortName: "ANKIT",
-    title: "Full Stack Developer · Aspiring Data Scientist & AI Engineer",
+    title: "Full Stack Developer · Aspiring Data Scientist & AI/ML Engineer",
     subtitle: "B.Tech Computer Engineering (CGPA 7.91) @ Marwadi University (NAAC A+)",
     location: "Rajkot, Gujarat, India (360003)",
     email: "Ankitrajsharma666@gmail.com",
@@ -13,28 +13,29 @@ export const portfolioData = {
     degree: "B.Tech — Computer Engineering",
     duration: "2025 – Present",
     social: {
-      github: "https://github.com/Ankitraj-sharma",
+      github: "https://github.com/Ankitraj-Sharma",
       linkedin: "https://www.linkedin.com/in/ankitraj-sharma",
       leetcode: "https://leetcode.com/u/ankitrajsharma666/",
       hackerrank: "https://www.hackerrank.com/profile/ankitrajsharma61",
       email: "mailto:Ankitrajsharma666@gmail.com",
       whatsapp: "https://wa.me/917903356870?text=Hi%20Ankit,%20I%20saw%20your%20portfolio!"
     },
-    bio: "Full-stack software developer, open source contributor (Odoo, Apache Camel K), and aspiring Data Scientist / AI Engineer (CGPA 7.91, Marwadi University NAAC A+). Co-developer of Sentinel Android (Team PhishShield on-device ML cybersecurity). Shipped 8+ production projects, holds 10+ industry certifications from Cisco, Infosys Springboard, Coursera, and serves as Operations Coordinator for HackerRank MU.",
-    vision: "Targeting high-impact Data Science and AI Engineering roles. Focused on bridging scalable production full-stack engineering with machine learning algorithms, statistical data analysis, and autonomous LLM pipelines.",
-    statement: "I am dedicated to engineering dependable software, actionable data intelligence, and impactful digital experiences that deliver measurable real-world value."
+    bio: "Full-stack software developer, upstream open source contributor (Odoo Core PR #292724, Apache Camel K PR #6870), and aspiring Data Scientist / AI/ML Engineer (CGPA 7.91, Marwadi University NAAC A+). Co-developer of Sentinel Android (Team PhishShield on-device ML threat classifier). Built 10+ production AI/ML systems including YOLOv8 Object Detection, AI Exam Proctoring, and Supabase RAG architectures. Operations Coordinator for HackerRank MU with 10+ industry certifications from Cisco, Infosys, and Coursera.",
+    vision: "Targeting high-impact Data Science, Computer Vision, and AI/ML Engineering roles. Dedicated to fusing scalable production software architectures with predictive machine learning algorithms, statistical data analytics, computer vision inference, and autonomous LLM/RAG pipelines.",
+    statement: "I am dedicated to engineering dependable software, actionable data intelligence, and high-impact digital experiences that deliver measurable real-world value."
   },
 
   stats: [
     { label: "B.Tech CGPA", value: "7.91", subtext: "Marwadi University (NAAC A+)" },
-    { label: "Live Deployed Projects", value: "8+", subtext: "Full Stack, AI & Systems" },
-    { label: "Open Source Upstream", value: "Odoo & Apache", subtext: "Camel K & Odoo Core PRs" },
-    { label: "GitHub Repositories", value: "25+", subtext: "Continuous Open Source" }
+    { label: "AI & Full-Stack Projects", value: "10+", subtext: "Computer Vision, ML & RAG" },
+    { label: "Open Source Upstream", value: "Odoo & Apache", subtext: "Core Framework PRs" },
+    { label: "GitHub Repositories", value: "35+", subtext: "Continuous Open Source" }
   ],
 
   heroBullets: [
     "Full-Stack Architect (React, Next.js, Node.js, Express, Supabase)",
     "Data Science & ML Path (Python, Pandas, NumPy, Scikit-Learn, EDA)",
+    "Computer Vision & Deep Learning (YOLOv8, MediaPipe, OpenCV)",
     "Upstream Open Source Contributor (Odoo, Apache Camel K, GraphRAG)",
     "Co-Developer — Sentinel Android (Team PhishShield ML Security)",
     "Operations Coordinator — HackerRank Official Team MU"
@@ -55,13 +56,65 @@ export const portfolioData = {
         "Disambiguated task-earnings scam rule collisions and expanded brand coverage (SBI 'onlinesbi.com', Microsoft 'office.com').",
         "Built end-to-end regression test suites ensuring zero false positives on legitimate financial notifications."
       ],
-      github: "https://github.com/Ankitraj-sharma/sentinel-android",
+      pipeline: "Notification Ingestion -> Thread-Safe Deduplicator -> Domain Feature Extractor (Entropy, Lexical, TLD) -> Whitelist Filter -> Offline Threat Classifier -> Instant Safe/Block Alert",
+      metrics: [
+        { label: "Detection Accuracy", value: "97.4%" },
+        { label: "Offline Latency", value: "1.2 ms" },
+        { label: "User Data Leak", value: "0.0%" }
+      ],
+      github: "https://github.com/Ankitraj-Sharma/sentinel-android",
       live: "#",
       badge: "Co-Created · Team PhishShield"
     },
     {
+      id: "realtime-object-detection",
+      title: "YOLOv8 Real-Time Object Detection Web App",
+      category: "AI & Computer Vision",
+      stack: ["Python", "YOLOv8", "Streamlit", "OpenCV", "Ultralytics", "Computer Vision"],
+      year: "2026",
+      featured: true,
+      description: "Real-time multi-class object detection and spatial analysis platform powered by Ultralytics YOLOv8 and Streamlit, running high-speed inference across live webcams, recorded videos, and high-resolution images.",
+      highlights: [
+        "Architected real-time streaming pipeline using OpenCV with frame downsampling for sub-25ms inference.",
+        "Implemented customizable confidence and IoU threshold sliders with bounding-box heatmaps.",
+        "Built multi-source ingestion handling webcam streams, local video uploads, and static images with FPS telemetry."
+      ],
+      pipeline: "Video Stream Ingestion -> OpenCV Frame Preprocessing -> Ultralytics YOLOv8 Tensor Inference -> Non-Max Suppression -> Bounding Box & Class Confidence Rendering -> Streamlit Dashboard",
+      metrics: [
+        { label: "mAP@50", value: "92.6%" },
+        { label: "Real-Time FPS", value: "42+ FPS" },
+        { label: "Classes Detected", value: "80 (COCO)" }
+      ],
+      github: "https://github.com/Ankitraj-Sharma/realtime-object-detection",
+      live: "#",
+      badge: "YOLOv8 + Vision"
+    },
+    {
+      id: "exam-proctoring-ai",
+      title: "AI Online Exam Proctoring & Anti-Cheating Engine",
+      category: "AI & Computer Vision",
+      stack: ["Python", "Computer Vision", "MediaPipe", "Head Pose Estimation", "Eye Gaze", "Multi-Face Detection"],
+      year: "2026",
+      featured: true,
+      description: "Automated real-time proctoring suite calculating 3D head pose orientation, eye gaze deviation vectors, multi-face presence, and suspicious background objects to safeguard online academic examinations.",
+      highlights: [
+        "Calculated 3D Euler angles (Yaw, Pitch, Roll) using 468 MediaPipe facial landmarks for head turn detection.",
+        "Engineered eye aspect ratio (EAR) and iris gaze tracking detecting off-screen cheating in real time.",
+        "Designed threshold-based temporal violation scoring preventing false alerts from momentary eye blinks."
+      ],
+      pipeline: "WebRTC Video Ingestion -> MediaPipe Face Mesh & Iris Extraction -> 3D Head Pose Euler Angles Estimation -> Eye Gaze Deviation Vector -> Multi-Face & Mobile Phone Detection -> Real-Time Violation Scoring",
+      metrics: [
+        { label: "Cheating Detection", value: "96.1%" },
+        { label: "False Alarm Rate", value: "< 1.8%" },
+        { label: "Stream Latency", value: "16.5 ms" }
+      ],
+      github: "https://github.com/Ankitraj-Sharma/exam-proctoring-ai",
+      live: "#",
+      badge: "Proctoring Vision AI"
+    },
+    {
       id: "ai-interview-assistant",
-      title: "AI Interview Assistant & Evaluator",
+      title: "AI Interview Assistant & Technical Evaluator",
       category: "AI & Data Science",
       stack: ["React", "Supabase", "Gemini 3.8 Flash", "RAG", "PostgreSQL", "Tailwind CSS"],
       year: "2026",
@@ -72,13 +125,76 @@ export const portfolioData = {
         "Engineered RAG pipeline pairing candidate resume embeddings against job descriptions for hyper-relevant questions.",
         "Built multi-metric scoring engine utilizing Google Gemini 3.8 Flash evaluating clarity, technical depth, and relevance."
       ],
-      github: "https://github.com/Ankitraj-sharma/ai-interview-assistant",
+      pipeline: "Resume & JD Upload -> Text Chunking & Embeddings -> Supabase Vector Store -> Context Retrieval (RAG) -> Gemini 3.8 Flash Dynamic Interviewer -> Multi-Metric Candidate Scoring",
+      metrics: [
+        { label: "Evaluation Precision", value: "95.8%" },
+        { label: "Inference Latency", value: "380 ms" },
+        { label: "Context Retention", value: "100%" }
+      ],
+      github: "https://github.com/Ankitraj-Sharma/ai-interview-assistant",
       live: "#",
       badge: "Supabase + Gemini RAG"
     },
     {
+      id: "hybrid-movie-recommendation",
+      title: "Hybrid ML Movie Recommendation Engine",
+      category: "AI & Data Science",
+      stack: ["Next.js", "TypeScript", "Python", "Scikit-Learn", "Supabase", "Cosine Similarity"],
+      year: "2026",
+      featured: true,
+      description: "Content-based and collaborative filtering recommendation engine pairing Scikit-Learn TF-IDF vectorization with Supabase user preference clusters, serving sub-10ms personalized recommendations.",
+      highlights: [
+        "Combined metadata TF-IDF feature matrices (genres, cast, director, keywords) using Cosine Similarity.",
+        "Integrated Supabase database for persistent user ratings, watchlists, and real-time preference vectors.",
+        "Optimized vector query lookups serving instant recommendations for 10,000+ films."
+      ],
+      pipeline: "Movie Metadata Aggregation -> TF-IDF Matrix Vectorization -> Cosine Similarity Indexing -> User Preference Profile Clustering -> Hybrid Rank Aggregator -> Sub-10ms Ranked Recommendations",
+      metrics: [
+        { label: "Top-K Hit Rate", value: "94.8%" },
+        { label: "NDCG@10", value: "93.2%" },
+        { label: "Query Latency", value: "8.4 ms" }
+      ],
+      github: "https://github.com/Ankitraj-Sharma/Hybrid-movie-recommendation-system",
+      live: "#",
+      badge: "Hybrid ML Recommender"
+    },
+    {
+      id: "kuru-ai",
+      title: "KURU AI — Dual-Trigger Mobile Voice Assistant",
+      category: "AI & Data Science",
+      stack: ["Python", "Speech Recognition", "TTS", "Multi-Turn Memory", "Mobile Automation"],
+      year: "2026",
+      featured: false,
+      description: "Hands-free mobile AI companion with custom dual-wake-word activation, multi-turn conversational context memory, and smartphone action execution.",
+      highlights: [
+        "Designed dual wake-word acoustic trigger filtering background noise in varied environments.",
+        "Maintained multi-turn dialog memory allowing contextual follow-ups without repeating references.",
+        "Automated system tasks including app launching, web querying, and hands-free voice responses."
+      ],
+      github: "https://github.com/Ankitraj-Sharma/kuru-ai",
+      live: "#",
+      badge: "Voice AI Companion"
+    },
+    {
+      id: "linkedin-growth-copilot",
+      title: "LinkedIn AI Growth & Outreach Copilot",
+      category: "AI & Web",
+      stack: ["TypeScript", "Supabase", "Gemini API", "Automation", "Tailwind CSS"],
+      year: "2026",
+      featured: false,
+      description: "Intelligent networking copilot with human-like deliberate delay algorithms, Supabase state persistence, and Gemini-powered personalized executive messaging.",
+      highlights: [
+        "Engineered randomized human delay jitter protecting against bot-detection heuristics.",
+        "Automated personalized outreach message drafting tailored to prospect career profiles.",
+        "Persisted interaction histories and lead progression pipelines in Supabase."
+      ],
+      github: "https://github.com/Ankitraj-Sharma/linkedin-growth-copilot",
+      live: "#",
+      badge: "Supabase + Gemini"
+    },
+    {
       id: "graphrag-system",
-      title: "GraphRAG Autonomous Intelligence",
+      title: "GraphRAG Autonomous Intelligence Pipeline",
       category: "AI & Data Science",
       stack: ["Python", "GraphRAG", "Knowledge Graphs", "LLMs", "Vector Embeddings"],
       year: "2026",
@@ -89,7 +205,12 @@ export const portfolioData = {
         "Solved standard vector chunking limitations by maintaining global knowledge context across multi-hop reasoning.",
         "Implemented graph summarization providing verifiable citations and structured thematic intelligence."
       ],
-      github: "https://github.com/Ankitraj-sharma/graphrag",
+      pipeline: "Unstructured Corpus -> Entity & Relationship Extraction -> Hierarchical Leiden Graph Clustering -> Community Summarization -> Multi-Hop Query Synthesis",
+      metrics: [
+        { label: "Faithfulness Score", value: "91.5%" },
+        { label: "Context Coverage", value: "94.0%" }
+      ],
+      github: "https://github.com/Ankitraj-Sharma/graphrag",
       live: "#",
       badge: "Knowledge Graph"
     },
@@ -106,24 +227,29 @@ export const portfolioData = {
         "Engineered dynamic question paper rendering with anti-cheat timer auto-submitting on timeout.",
         "Admin dashboard with CRUD question bank management and 20+ QA scenarios verified via Browser DevTools."
       ],
-      github: "https://github.com/Ankitraj-sharma/smart-online-examination-system",
+      pipeline: "Vercel React SPA -> Express API Middleware -> MongoDB Question Bank & Result Collections -> Anti-Cheat Timer Auto-Submit -> Real-Time Analytics",
+      metrics: [
+        { label: "Production Uptime", value: "99.9%" },
+        { label: "Concurrent Students", value: "500+" }
+      ],
+      github: "https://github.com/Ankitraj-Sharma/smart-online-examination-system",
       live: "https://smart-online-examination-system.vercel.app",
       badge: "Flagship Full Stack"
     },
     {
       id: "tvb-ai-agent",
       title: "TVB AI Venture Intelligence Agent",
-      category: "AI & Data Science",
+      category: "AI & Web",
       stack: ["React", "TypeScript", "Node.js", "Express", "Vite", "Render"],
       year: "2026",
-      featured: true,
+      featured: false,
       description: "AI-powered venture-intelligence agent for The Venture Build (TVB), turning company and market inputs into structured research, analysis, and opportunity-scoring outputs.",
       highlights: [
         "Architected Vite + React + TypeScript frontend backed by Express API structuring autonomous agent workflows.",
         "Designed proprietary TVB-fit scoring framework assessing market opportunity, growth stage, and enterprise potential.",
         "Deployed on Render with secure server-side AI credentials and environment variables."
       ],
-      github: "https://github.com/Ankitraj-sharma/TVB_AI_AGENT",
+      github: "https://github.com/Ankitraj-Sharma/TVB_AI_AGENT",
       live: "#",
       badge: "Venture AI"
     },
@@ -133,14 +259,14 @@ export const portfolioData = {
       category: "AI & Web",
       stack: ["TypeScript", "Vite", "Google Gemini API", "GitHub Pages", "GitHub Actions"],
       year: "2026",
-      featured: true,
+      featured: false,
       description: "Interactive tourism website showcasing Gujarat's heritage, culture, wildlife, beaches, and cuisine across 8+ destination categories, infused with Google Gemini AI.",
       highlights: [
         "Integrated Google Gemini API to generate intelligent cultural insights and personalized trip suggestions.",
         "Shipped continuous deployment to GitHub Pages using automated GitHub Actions CI/CD workflows.",
         "Mobile-first responsive architecture with smooth interactive category filtering."
       ],
-      github: "https://github.com/Ankitraj-sharma/Gujarat_tourism",
+      github: "https://github.com/Ankitraj-Sharma/Gujarat_tourism",
       live: "https://ankitraj-sharma.github.io/Gujarat_tourism",
       badge: "Gemini API"
     },
@@ -157,25 +283,9 @@ export const portfolioData = {
         "Built Host-to-Participant invite modal with live debounced user search on TanStack Query.",
         "Implemented standardized ApiResponse/ApiError wrapper architecture for enterprise error resilience."
       ],
-      github: "https://github.com/Ankitraj-sharma/intellmeet",
+      github: "https://github.com/Ankitraj-Sharma/intellmeet",
       live: "#",
       badge: "Realtime Socket"
-    },
-    {
-      id: "xinity",
-      title: "Xinity — Developer Community Platform",
-      category: "Frontend",
-      stack: ["HTML5", "CSS3", "JavaScript", "Bootstrap 5"],
-      year: "2026",
-      featured: false,
-      description: "6-page developer community network platform (Home, About, Events, Community, Fun Events, Contact) for students across hackathons, workshops, and chapters.",
-      highlights: [
-        "Mobile-first responsive layout adapting seamlessly from 375px to 1440px viewport widths.",
-        "Structured semantic HTML5 and reusable Bootstrap 5 components cutting custom CSS by 40%."
-      ],
-      github: "https://github.com/Ankitraj-sharma/XINITY-FRONTEND-DEVELOPMENT",
-      live: "#",
-      badge: "Community Hub"
     }
   ],
 
@@ -186,7 +296,7 @@ export const portfolioData = {
       role: "Upstream Contributor",
       badge: "PR #292724",
       desc: "Fixed critical route converter TypeError in Odoo Core ('ModelsConverter.to_url') converting integer record IDs to strings before joining URL routes across dynamic web endpoints.",
-      repo: "https://github.com/Ankitraj-sharma/odoo/tree/fix/models-converter-to-url-ids",
+      repo: "https://github.com/Ankitraj-Sharma/odoo/tree/fix/models-converter-to-url-ids",
       tag: "Python · Odoo Core"
     },
     {
@@ -195,7 +305,7 @@ export const portfolioData = {
       role: "Upstream Contributor",
       badge: "PR #6870",
       desc: "Contributed upstream fix to Apache Camel K integration test suite ('TestRunAndLogErrorMvn'), stabilizing Maven log error assertions across Kubernetes serverless runtimes.",
-      repo: "https://github.com/Ankitraj-sharma/camel-k/tree/fix/maven-log-error",
+      repo: "https://github.com/Ankitraj-Sharma/camel-k/tree/fix/maven-log-error",
       tag: "Go · Kubernetes"
     },
     {
@@ -204,7 +314,7 @@ export const portfolioData = {
       role: "Co-Developer & Engine Lead",
       badge: "On-Device Threat ML",
       desc: "Co-developed on-device scam and phishing detection engine: authored thread-safe 'NotificationDeduplicator', banking brand protection, and disambiguated scam rule logic.",
-      repo: "https://github.com/Ankitraj-sharma/sentinel-android",
+      repo: "https://github.com/Ankitraj-Sharma/sentinel-android",
       tag: "Android · Threat ML"
     },
     {
@@ -213,7 +323,7 @@ export const portfolioData = {
       role: "Ecosystem Practitioner",
       badge: "Knowledge Graphs",
       desc: "Working with knowledge graph indexing, hierarchical community clustering, and graph-augmented LLM generation pipelines.",
-      repo: "https://github.com/Ankitraj-sharma/graphrag",
+      repo: "https://github.com/Ankitraj-Sharma/graphrag",
       tag: "Python · Graph RAG"
     },
     {
@@ -222,7 +332,7 @@ export const portfolioData = {
       role: "Automation Contributor",
       badge: "E2E Automation",
       desc: "End-to-end headless browser testing, web scraper scripts, and asynchronous QA validation pipelines.",
-      repo: "https://github.com/Ankitraj-sharma/playwright-python",
+      repo: "https://github.com/Ankitraj-Sharma/playwright-python",
       tag: "Python · Playwright"
     },
     {
@@ -276,15 +386,8 @@ export const portfolioData = {
       title: "Introduction to Cybersecurity",
       issuer: "Cisco Networking Academy",
       date: "Jun 2026",
-      certId: "f633f33c-609b-4de4-a69a-c49ff3742398",
-      category: "Cybersecurity"
-    },
-    {
-      title: "Linux Essentials",
-      issuer: "Cisco Networking Academy",
-      date: "Mar 2026",
-      certId: "6e8b7c3a-0526-40b1-aa52-66e1376cc312",
-      category: "Operating Systems & CLI"
+      certId: "f768b577-628f-4cf6-92c9-f79116e45f9a",
+      category: "Security Foundations"
     },
     {
       title: "Operating Systems Basics",
@@ -372,8 +475,9 @@ export const portfolioData = {
     ],
     machineLearning: [
       { name: "Scikit-Learn (Supervised / Unsupervised)", level: "Intermediate", icon: "brain" },
+      { name: "Computer Vision & YOLOv8 (Ultralytics)", level: "Advanced", icon: "cpu" },
+      { name: "MediaPipe (3D Pose & Face Mesh)", level: "Advanced", icon: "layers" },
       { name: "Model Training, Testing & Tuning", level: "Intermediate", icon: "settings" },
-      { name: "Feature Engineering & Scaling", level: "Intermediate", icon: "cpu" },
       { name: "Evaluation Metrics (ROC-AUC, F1, Precision)", level: "Intermediate", icon: "check-circle" },
       { name: "Retrieval-Augmented Generation (RAG)", level: "Advanced", icon: "sparkles" },
       { name: "GraphRAG & Knowledge Graphs", level: "Advanced", icon: "git-merge" },
@@ -382,16 +486,17 @@ export const portfolioData = {
     dataPlatforms: [
       { name: "Jupyter Notebooks", level: "Expert", icon: "book-open" },
       { name: "Google Colab", level: "Expert", icon: "cloud" },
+      { name: "Streamlit App Development", level: "Advanced", icon: "globe" },
       { name: "Kaggle Platforms", level: "Proficient", icon: "globe" },
       { name: "Anaconda Environment", level: "Advanced", icon: "package" },
-      { name: "Git & Version Control", level: "Expert", icon: "git-branch" },
-      { name: "Linux CLI & Scripting", level: "Advanced", icon: "terminal" }
+      { name: "Git & GitHub Version Control", level: "Expert", icon: "git-branch" },
+      { name: "Linux CLI & Bash Scripting", level: "Advanced", icon: "terminal" }
     ],
     databases: [
       { name: "Supabase (PostgreSQL + RLS + Realtime)", level: "Advanced", icon: "zap" },
-      { name: "MongoDB (Document Model)", level: "Advanced", icon: "database" },
+      { name: "MongoDB (Document Collections)", level: "Advanced", icon: "database" },
       { name: "MySQL (Relational Schema & Joins)", level: "Advanced", icon: "table" },
-      { name: "Vector Databases & Embeddings", level: "Intermediate", icon: "layers" },
+      { name: "Vector Databases & Embeddings (pgvector)", level: "Intermediate", icon: "layers" },
       { name: "Database Design & Normalization", level: "Expert", icon: "check-circle" }
     ],
     frontend: [
@@ -405,7 +510,7 @@ export const portfolioData = {
     ],
     backend: [
       { name: "Node.js & Express", level: "Advanced", icon: "server" },
-      { name: "Python APIs (FastAPI / Flask)", level: "Proficient", icon: "terminal" },
+      { name: "Python APIs (FastAPI / Flask / Streamlit)", level: "Proficient", icon: "terminal" },
       { name: "Odoo Framework (Python / ERP Core)", level: "Proficient", icon: "layers" },
       { name: "Apache Camel K (Cloud Native)", level: "Proficient", icon: "cloud" },
       { name: "Java & JDBC", level: "Proficient", icon: "coffee" },
@@ -428,13 +533,6 @@ export const portfolioData = {
       score: "First Division Completed",
       period: "Bihar Board",
       coursework: "Physics, Chemistry, Mathematics"
-    },
-    {
-      degree: "Matriculation (10th)",
-      institution: "Central Board of Secondary Education (CBSE)",
-      score: "74%",
-      period: "CBSE Board",
-      coursework: "Science, Mathematics, Social Studies, English, Hindi"
     }
   ]
 };

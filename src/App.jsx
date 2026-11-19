@@ -9,6 +9,8 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import NavigationDrawer from './components/NavigationDrawer';
 import TerminalModal from './components/TerminalModal';
+import ResumeModal from './components/ResumeModal';
+import QuickNavDock from './components/QuickNavDock';
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -21,6 +23,7 @@ export default function App() {
 
   const [openDrawer, setOpenDrawer] = useState(false);
   const [openTerminal, setOpenTerminal] = useState(false);
+  const [openResume, setOpenResume] = useState(false);
 
   // Sync dark class on html element
   useEffect(() => {
@@ -36,11 +39,11 @@ export default function App() {
     }
   }, [darkMode]);
 
-  // Keyboard shortcut: `~` or ` to open terminal
+  // Keyboard shortcut: `~` or ` to open terminal, and 'r' for resume
   useEffect(() => {
     const handleKeyDown = (e) => {
+      if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
       if (e.key === '`' && !e.ctrlKey && !e.metaKey) {
-        if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
         setOpenTerminal((prev) => !prev);
       }
     };
@@ -65,11 +68,15 @@ export default function App() {
         setOpenDrawer={setOpenDrawer}
         openTerminal={openTerminal}
         setOpenTerminal={setOpenTerminal}
+        onOpenResume={() => setOpenResume(true)}
       />
 
       {/* Main Streamlined Content */}
       <main className="relative z-10">
-        <Hero onOpenTerminal={() => setOpenTerminal(true)} />
+        <Hero 
+          onOpenTerminal={() => setOpenTerminal(true)} 
+          onOpenResume={() => setOpenResume(true)}
+        />
         <AboutSection />
         <ProjectsSection />
         <SkillsSection />
@@ -90,6 +97,18 @@ export default function App() {
       <TerminalModal
         isOpen={openTerminal}
         onClose={() => setOpenTerminal(false)}
+      />
+
+      {/* Curriculum Vitae Modal */}
+      <ResumeModal
+        isOpen={openResume}
+        onClose={() => setOpenResume(false)}
+      />
+
+      {/* Floating Bottom Quick-Nav Dock with Reading Scroll Bar */}
+      <QuickNavDock
+        onOpenTerminal={() => setOpenTerminal(true)}
+        onOpenResume={() => setOpenResume(true)}
       />
 
     </div>
