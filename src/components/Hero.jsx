@@ -18,6 +18,9 @@ import {
 import { portfolioData } from '../data/portfolioData';
 import { playSound } from '../utils/audio';
 import AnimatedCounter from './AnimatedCounter';
+import LiveStatusPill from './LiveStatusPill';
+import TiltCard from './TiltCard';
+import BorderBeam from './BorderBeam';
 
 export default function Hero({ onOpenTerminal, onOpenResume }) {
   const { personal, stats } = portfolioData;
@@ -73,22 +76,14 @@ export default function Hero({ onOpenTerminal, onOpenResume }) {
           {/* Left Column: Bio & Core Pitch */}
           <div className="lg:col-span-7 flex flex-col gap-6">
             
-            {/* Status Pill */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-sm w-fit card-glow-hover">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span className="text-xs font-mono font-semibold tracking-wider text-emerald-600 dark:text-emerald-400 uppercase">
-                Available for Full-Time Roles & Projects
-              </span>
-            </div>
+            {/* Live Interactive Status Header Pill */}
+            <LiveStatusPill />
 
-            {/* Main Headline with HIGH CONTRAST */}
+            {/* Main Headline with Kinetic Text Shimmer */}
             <div>
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
                 Crafting robust software &{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff5e14] via-amber-500 to-[#ff5e14]">
+                <span className="text-shimmer">
                   intelligent systems.
                 </span>
               </h1>
@@ -110,7 +105,10 @@ export default function Hero({ onOpenTerminal, onOpenResume }) {
             {/* Quick Metrics Strip with Animated Counters */}
             <div className="grid grid-cols-3 gap-3 sm:gap-4 py-2 max-w-xl">
               
-              <div className="p-4 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 border-l-4 border-l-amber-500 shadow-sm dark:shadow-md card-glow-hover">
+              <div 
+                className="p-4 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 border-l-4 border-l-amber-500 shadow-sm dark:shadow-md card-glow-hover"
+                data-cursor="7.91"
+              >
                 <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-mono uppercase">
                   <GraduationCap className="w-3.5 h-3.5 text-amber-500" />
                   <span>CGPA</span>
@@ -123,7 +121,10 @@ export default function Hero({ onOpenTerminal, onOpenResume }) {
                 </span>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 border-l-4 border-l-[#ff5e14] shadow-sm dark:shadow-md card-glow-hover">
+              <div 
+                className="p-4 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 border-l-4 border-l-[#ff5e14] shadow-sm dark:shadow-md card-glow-hover"
+                data-cursor="10+ APPS"
+              >
                 <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-mono uppercase">
                   <Code className="w-3.5 h-3.5 text-[#ff5e14]" />
                   <span>Shipped</span>
@@ -136,7 +137,10 @@ export default function Hero({ onOpenTerminal, onOpenResume }) {
                 </span>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 border-l-4 border-l-indigo-500 shadow-sm dark:shadow-md card-glow-hover">
+              <div 
+                className="p-4 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 border-l-4 border-l-indigo-500 shadow-sm dark:shadow-md card-glow-hover"
+                data-cursor="35+ REPOS"
+              >
                 <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-mono uppercase">
                   <ShieldCheck className="w-3.5 h-3.5 text-indigo-500" />
                   <span>Open Source</span>
@@ -156,6 +160,7 @@ export default function Hero({ onOpenTerminal, onOpenResume }) {
               <a
                 href="#projects"
                 onClick={() => playSound('click')}
+                data-cursor="VIEW WORKS"
                 className="flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#ff5e14] text-white font-semibold text-xs tracking-wider uppercase hover:bg-[#ea580c] shadow-lg shadow-orange-500/25 transition-all transform hover:-translate-y-0.5"
               >
                 <span>Explore Works</span>
@@ -167,6 +172,7 @@ export default function Hero({ onOpenTerminal, onOpenResume }) {
                   playSound('click');
                   onOpenResume();
                 }}
+                data-cursor="RESUME PDF"
                 className="flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 font-semibold text-xs tracking-wider uppercase text-slate-900 dark:text-white hover:border-[#ff5e14]/60 transition-all transform hover:-translate-y-0.5 shadow-sm"
               >
                 <FileText className="w-4 h-4 text-[#ff5e14]" />
@@ -175,6 +181,7 @@ export default function Hero({ onOpenTerminal, onOpenResume }) {
 
               <button
                 onClick={onOpenTerminal}
+                data-cursor="CLI TERMINAL"
                 className="p-3.5 rounded-2xl bg-white dark:bg-[#111827] border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-emerald-500 transition-colors shadow-sm"
                 title="Launch Recruiter Terminal (Shortcut: `)"
               >
@@ -184,75 +191,82 @@ export default function Hero({ onOpenTerminal, onOpenResume }) {
 
           </div>
 
-          {/* Right Column: Balanced Professional Studio Portrait with Floating Tech Orbs */}
+          {/* Right Column: 3D Tilt Card Studio Portrait with Holographic Orbit Badges & Border Beam */}
           <div className="lg:col-span-5 flex justify-center relative">
             
-            <div className="relative w-full max-w-[370px] sm:max-w-[420px]">
+            <TiltCard className="w-full max-w-[370px] sm:max-w-[420px]" maxTilt={10} scale={1.03}>
               
-              {/* Dynamic Ambient Background Glow */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/20 via-amber-500/15 to-blue-500/10 rounded-[36px] blur-3xl -z-10 animate-pulse" />
-
-              {/* Floating Holographic Badge 1: YOLOv8 Vision (Top Left) */}
-              <div className="absolute -top-4 -left-4 sm:-left-6 z-30 px-3 py-1.5 rounded-2xl bg-white/95 dark:bg-[#111827]/95 backdrop-blur-xl border border-orange-500/30 shadow-xl flex items-center gap-2 animate-float-slow select-none">
-                <span className="w-2 h-2 rounded-full bg-[#ff5e14] animate-ping" />
-                <span className="text-[11px] font-mono font-bold text-slate-900 dark:text-white">
-                  🎯 YOLOv8 Vision
-                </span>
-              </div>
-
-              {/* Floating Holographic Badge 2: Supabase RAG (Top Right) */}
-              <div className="absolute -top-3 -right-3 sm:-right-5 z-30 px-3 py-1.5 rounded-2xl bg-white/95 dark:bg-[#111827]/95 backdrop-blur-xl border border-emerald-500/30 shadow-xl flex items-center gap-2 animate-float-delayed select-none">
-                <Zap className="w-3.5 h-3.5 text-emerald-500" />
-                <span className="text-[11px] font-mono font-bold text-slate-900 dark:text-white">
-                  ⚡ Supabase + RAG
-                </span>
-              </div>
-
-              {/* Floating Holographic Badge 3: Sentinel ML (Right Middle) */}
-              <div className="hidden sm:flex absolute top-1/2 -right-8 -translate-y-1/2 z-30 px-3 py-1.5 rounded-2xl bg-white/95 dark:bg-[#111827]/95 backdrop-blur-xl border border-indigo-500/30 shadow-xl items-center gap-2 animate-float-slow select-none">
-                <ShieldCheck className="w-3.5 h-3.5 text-indigo-500" />
-                <span className="text-[11px] font-mono font-bold text-slate-900 dark:text-white">
-                  🛡️ Sentinel 97.4%
-                </span>
-              </div>
-
-              {/* Studio Frame with Dark/Light Adaptive Border */}
-              <div className="p-3.5 rounded-[36px] bg-slate-100 dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-2xl transition-transform duration-500 hover:scale-[1.01]">
+              <div className="relative">
                 
-                <div className="relative aspect-[4/5] rounded-[28px] overflow-hidden bg-slate-200 dark:bg-[#0f172a] flex items-end justify-center">
+                {/* Dynamic Ambient Background Glow */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-orange-500/25 via-amber-500/20 to-blue-500/15 rounded-[36px] blur-3xl -z-10 animate-pulse" />
+
+                {/* Floating Holographic Badge 1: YOLOv8 Vision (Top Left) */}
+                <div className="absolute -top-4 -left-4 sm:-left-6 z-30 px-3 py-1.5 rounded-2xl bg-white/95 dark:bg-[#111827]/95 backdrop-blur-xl border border-orange-500/30 shadow-xl flex items-center gap-2 animate-float-slow select-none">
+                  <span className="w-2 h-2 rounded-full bg-[#ff5e14] animate-ping" />
+                  <span className="text-[11px] font-mono font-bold text-slate-900 dark:text-white">
+                    🎯 YOLOv8 Vision
+                  </span>
+                </div>
+
+                {/* Floating Holographic Badge 2: Supabase RAG (Top Right) */}
+                <div className="absolute -top-3 -right-3 sm:-right-5 z-30 px-3 py-1.5 rounded-2xl bg-white/95 dark:bg-[#111827]/95 backdrop-blur-xl border border-emerald-500/30 shadow-xl flex items-center gap-2 animate-float-delayed select-none">
+                  <Zap className="w-3.5 h-3.5 text-emerald-500" />
+                  <span className="text-[11px] font-mono font-bold text-slate-900 dark:text-white">
+                    ⚡ Supabase + RAG
+                  </span>
+                </div>
+
+                {/* Floating Holographic Badge 3: Sentinel ML (Right Middle) */}
+                <div className="hidden sm:flex absolute top-1/2 -right-8 -translate-y-1/2 z-30 px-3 py-1.5 rounded-2xl bg-white/95 dark:bg-[#111827]/95 backdrop-blur-xl border border-indigo-500/30 shadow-xl items-center gap-2 animate-float-slow select-none">
+                  <ShieldCheck className="w-3.5 h-3.5 text-indigo-500" />
+                  <span className="text-[11px] font-mono font-bold text-slate-900 dark:text-white">
+                    🛡️ Sentinel 97.4%
+                  </span>
+                </div>
+
+                {/* Studio Frame with Dark/Light Adaptive Border & Border Beam */}
+                <div className="relative p-3.5 rounded-[36px] bg-slate-100 dark:bg-[#111827] border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden">
                   
-                  {/* Subtle inner bottom gradient for text contrast */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent z-10 pointer-events-none" />
+                  {/* Radiant Animated Border Beam */}
+                  <BorderBeam size={250} duration={10} colorFrom="#ff5e14" colorTo="#38bdf8" />
+                  
+                  <div className="relative aspect-[4/5] rounded-[28px] overflow-hidden bg-slate-200 dark:bg-[#0f172a] flex items-end justify-center">
+                    
+                    {/* Subtle inner bottom gradient for text contrast */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent z-10 pointer-events-none" />
 
-                  {/* Clean studio image */}
-                  <img
-                    src="./images/ankit-portrait.jpg"
-                    alt="Ankit Raj Sharma — Full Stack Developer & Aspiring Data Scientist"
-                    className="w-full h-full object-cover object-top hover:scale-[1.03] transition-transform duration-700"
-                  />
+                    {/* Clean studio image */}
+                    <img
+                      src="./images/ankit-portrait.jpg"
+                      alt="Ankit Raj Sharma — Full Stack Developer & Aspiring Data Scientist"
+                      className="w-full h-full object-cover object-top hover:scale-[1.03] transition-transform duration-700"
+                    />
 
-                  {/* Bottom Info Floating Card */}
-                  <div className="absolute bottom-3 left-3 right-3 z-20 p-3.5 rounded-2xl bg-white/95 dark:bg-[#1e293b]/95 backdrop-blur-md border border-slate-200/80 dark:border-white/10 shadow-lg flex items-center justify-between">
-                    <div>
-                      <h3 className="text-xs font-bold font-display uppercase tracking-wider text-slate-900 dark:text-white">
-                        Ankit Raj Sharma
-                      </h3>
-                      <p className="text-[11px] text-slate-600 dark:text-slate-300 font-mono flex items-center gap-1 mt-0.5">
-                        <MapPin className="w-3 h-3 text-[#ff5e14]" />
-                        Rajkot, Gujarat · Full Stack & AI/ML
-                      </p>
+                    {/* Bottom Info Floating Card */}
+                    <div className="absolute bottom-3 left-3 right-3 z-20 p-3.5 rounded-2xl bg-white/95 dark:bg-[#1e293b]/95 backdrop-blur-md border border-slate-200/80 dark:border-white/10 shadow-lg flex items-center justify-between">
+                      <div>
+                        <h3 className="text-xs font-bold font-display uppercase tracking-wider text-slate-900 dark:text-white">
+                          Ankit Raj Sharma
+                        </h3>
+                        <p className="text-[11px] text-slate-600 dark:text-slate-300 font-mono flex items-center gap-1 mt-0.5">
+                          <MapPin className="w-3 h-3 text-[#ff5e14]" />
+                          Rajkot, Gujarat · Full Stack & AI/ML
+                        </p>
+                      </div>
+
+                      <div className="w-8 h-8 rounded-xl bg-orange-500/10 flex items-center justify-center text-[#ff5e14] font-mono text-xs font-bold">
+                        A+
+                      </div>
                     </div>
 
-                    <div className="w-8 h-8 rounded-xl bg-orange-500/10 flex items-center justify-center text-[#ff5e14] font-mono text-xs font-bold">
-                      A+
-                    </div>
                   </div>
 
                 </div>
 
               </div>
 
-            </div>
+            </TiltCard>
 
           </div>
 

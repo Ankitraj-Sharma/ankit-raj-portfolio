@@ -13,6 +13,7 @@ import TerminalModal from './components/TerminalModal';
 import ResumeModal from './components/ResumeModal';
 import QuickNavDock from './components/QuickNavDock';
 import ParticleNetwork from './components/ParticleNetwork';
+import CustomCursor from './components/CustomCursor';
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -56,6 +57,12 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0B0F19] text-slate-900 dark:text-slate-100 transition-colors duration-200 relative selection:bg-[#ff5e14] selection:text-white">
       
+      {/* Evolva / Aarya Shah Custom Interactive Fluid Cursor */}
+      <CustomCursor />
+
+      {/* Evolva Style Subtle Film Grain Overlay */}
+      <div className="fixed inset-0 pointer-events-none bg-noise z-40 opacity-[0.035]" />
+
       {/* Interactive Cyber Particle Network Canvas */}
       <ParticleNetwork darkMode={darkMode} />
 
